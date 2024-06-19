@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student ID Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<style>
+    body {
+    font-family:sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+
+
+.left-panel,
+.right-panel {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.header {
+    background-color:rgb(8, 27, 49);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 20px;
+}
+
+
+.left-panel h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #4047F0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 24px rgba(10, 10, 10, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: gray;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4047F0;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.right-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.id-card-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    background-color: #fff;
+}
+
+.photo-container {
+    margin-right: 20px;
+    padding: 15px;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    background-color: #f1f1f1;
+    background-position: center;
+    background-size: cover;
+}
+
+.student-info {
+    flex-grow: 1;
+}
+
+.student-info h2 {
+    margin: 10;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #4047F0;
+    padding: 0;
+}
+
+.student-info p {
+    margin: 120;
+    font-size: 14px;
+    color: #0010;
+    padding: 10;
+}
+
+#photoName {
+    color: #888;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.left-panel {
+    color: #000;
+}
+
+.left-panel h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+    width: 60%;
+    padding: 15px;
+    border-radius: 70px;
+    border: none;
+    background-color: whitesmoke;
+}
+
+button {
+    padding: 10px 20px;
+    background-color:  #4047F0;
+
+    border: none;
+    border-radius: 55px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.photo,.sign {
+    width: 130px;
+    height: 170px;
+    background-position: center;
+    background-size: cover;
+}
+.right-panel {
+    display: flex;
+    justify-content: center;
+    width: 540px;
+}
+
+#idCard {
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background-color: #fff;
+}
+
+.photo-container,.sign-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+#college-name{
+    font-size: 20px;
+    margin-top: -20px;
+    margin-left: -21.5px;
+    background-color: black;
+    color: white;
+    width: 443px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.photo-container,.sign-container{
+    padding-top: 10px;
+    }
+    
+.row-2{
+    display: flex;
+    font-size: 10px;
+    justify-content: space-around;
+}
+.student-info ul{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    margin-left: -50px;
+}
+.student-info li:nth-child(1){
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+.student-info li:nth-child(2){
+    color: #0008ff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.student-info li{
+    font-size: 18px;
+    font-weight: bold;
+}
+.id-card-container{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(white,yellow);
+    width: 400px;
+}
+#idCardContent {
+    width: 400px; 
+    height: auto; 
+}
+#generateCard{
+    display: none;
+    position: absolute;
+    top: 450px;
+}
+</style>
+    <h1 class="header">ID CARD GENERATOR</h1>
+    <div class="container">
+        <div class="left-panel">
+            <h2>Enter Student Details</h2>
+            <form id="idCardForm">
+                <div class="form-group">
+                    <label for="name">Enter Full Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="namePositionTopToBottom">Position Top To Bottom:</label>
+                    <input type="range" id="namePositionTopToBottom" min="0" max="100" value="50">
+                    <label for="namePositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="namePositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group">
+                    <label for="collegeName">Enter College Name:</label>
+                    <input type="text" id="collegeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Enter Student ID:</label>
+                    <input type="text" id="studentId" required>
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="idPositionTopToBottom">Position Top To Bottom:</label>
+                    <input type="range" id="idPositionTopToBottom" min="0" max="100" value="50">
+                    <label for="idPositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="idPositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group">
+                    <label for="course">Enter course</label>
+                    <input type="text" id="course" required>
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="coursePositionTopToBottom">Position Top To Bottom:</label>
+                    <input type="range" id="coursePositionTopToBottom" min="0" max="100" value="50">
+                    <label for="coursePositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="coursePositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group">
+                    <label for="photo">Enter Student's Photo:</label>
+                    <input type="file" id="photo" accept="image/*" required>
+                    <p id="photoName"></p>
+                </div>
+                <div class="form-group">
+                    <label for="text-color">Select Text Color:</label>
+                    <input type="color" id="text-color" name="text-color" value="#000000">
+                </div>
+                <div class="form-group">
+                    <label for="font-family">Select Font Family:</label>
+                    <select id="font-family" name="font-family">
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Palatino">Palatino</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                    </select>
+                </div>
+                
+                <button type="submit" onclick="previewId()" id="PreviewCard">Preview Card</button>
+            </form>
+            
+        </div>
+        <button onclick="generatePDF()" id="generateCard">Generate Card</button>
+        
+        <div class="right-panel">
+            <div class="id-card-container" id="idCardContent">
+                <div id="college-name"></div>
+                <div class="row-2">
+                    <div class="photo-container">
+                        <span class="photo" id="idCardPhoto"></span>
+                    </div>
+                    <div class="student-info">
+                        <ul>
+                            <li>School of Engineering</li>
+                            <li>Identity Card</li>
+                            <li id="idCardName" style="position: relative;"></li>
+                            <li id="idCardStudentId" style="position: relative;"></li>
+                            <li id="idCardCourse" style="position: relative;"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function previewId(){
+    let leftPanel= document.querySelector(".left-panel");
+    let generateCard= document.querySelector("#generateCard");
+    let PreviewCard= document.querySelector("#PreviewCard");
+    leftPanel.style.display="none";
+    generateCard.style.display="block"; 
+    PreviewCard.style.display="none"; 
+
+ }
+ document.addEventListener("DOMContentLoaded", function() {
+     var employeeDetails = [];
+
+     function updateLivePreview() {
+         var name = document.getElementById("name").value || "N/A";
+         var collegeName = document.getElementById("collegeName").value;
+         var studentId = document.getElementById("studentId").value;
+         var course = document.getElementById("course").value;
+         var photo = document.getElementById("photo").files[0];
+         var photoPreview = document.getElementById("idCardPhoto");
+         var textColor = document.getElementById("text-color").value || "#000000";
+         var fontFamily = document.getElementById("font-family").value || "Arial";
+         var idCardName = document.getElementById("idCardName");
+         var idCardStudentId = document.getElementById("idCardStudentId");
+         var idCardCourse = document.getElementById("idCardCourse");
+         var namePositionTopToBottom = document.getElementById("namePositionTopToBottom").value;
+         var namePositionLeftToRight = document.getElementById("namePositionLeftToRight").value;
+         var idPositionTopToBottom = document.getElementById("idPositionTopToBottom").value;
+         var idPositionLeftToRight = document.getElementById("idPositionLeftToRight").value;
+         var coursePositionTopToBottom = document.getElementById("coursePositionTopToBottom").value;
+         var coursePositionLeftToRight = document.getElementById("coursePositionLeftToRight").value;
+
+         document.getElementById('college-name').innerText = collegeName;
+         document.getElementById('idCardName').innerText = name;
+         document.getElementById('idCardStudentId').innerText = `Student ID: ${studentId}`;
+         document.getElementById('idCardCourse').innerText = `Course: ${course}`;
+
+         if (idCardName) {
+             idCardName.textContent = name;
+             idCardName.style.color = textColor;
+             idCardName.style.fontFamily = fontFamily;
+             idCardName.style.top = `${namePositionTopToBottom}px`;
+             idCardName.style.left = `${namePositionLeftToRight}px`;
+         }
+         if (idCardStudentId) {
+             idCardStudentId.textContent = studentId;
+             idCardStudentId.style.color = textColor;
+             idCardStudentId.style.fontFamily = fontFamily;
+             idCardStudentId.style.top = `${idPositionTopToBottom}px`;
+             idCardStudentId.style.left = `${idPositionLeftToRight}px`;
+         }
+         if (idCardCourse) {
+             idCardCourse.textContent = course;
+             idCardCourse.style.color = textColor;
+             idCardCourse.style.fontFamily = fontFamily;
+             idCardCourse.style.top = `${coursePositionTopToBottom}px`;
+             idCardCourse.style.left = `${coursePositionLeftToRight}px`;
+         }
+
+         if (photo) {
+             var reader = new FileReader();
+             reader.onload = function(e) {
+                 photoPreview.style.backgroundImage = `url(${e.target.result})`;
+             };
+             reader.readAsDataURL(photo);
+         } else {
+             photoPreview.style.backgroundImage = 'none';
+         }
+     }
+     
+
+     document.getElementById("name").addEventListener("input", updateLivePreview);
+     document.getElementById("collegeName").addEventListener("input", updateLivePreview);
+     document.getElementById("studentId").addEventListener("input", updateLivePreview);
+     document.getElementById("course").addEventListener("input", updateLivePreview);
+     document.getElementById("photo").addEventListener("change", updateLivePreview);
+     document.getElementById("text-color").addEventListener("input", updateLivePreview);
+     document.getElementById("font-family").addEventListener("input", updateLivePreview);
+     document.getElementById("namePositionTopToBottom").addEventListener("input", updateLivePreview);
+     document.getElementById("namePositionLeftToRight").addEventListener("input", updateLivePreview);
+     document.getElementById("idPositionTopToBottom").addEventListener("input", updateLivePreview);
+     document.getElementById("idPositionLeftToRight").addEventListener("input", updateLivePreview);
+     document.getElementById("coursePositionTopToBottom").addEventListener("input", updateLivePreview);
+     document.getElementById("coursePositionLeftToRight").addEventListener("input", updateLivePreview);
+
+     document.getElementById("idCardForm").addEventListener("submit", function(event) {
+         event.preventDefault();
+         var name = document.getElementById("name").value;
+         var collegeName = document.getElementById("collegeName").value;
+         var studentId = document.getElementById("studentId").value;
+         var course = document.getElementById("course").value;
+         var photo = document.getElementById("photo").files[0];
+
+         var employee = {
+             name: name,
+             collegeName: collegeName,
+             studentId: studentId,
+             course: course,
+             photo: photo
+         };
+
+         employeeDetails.push(employee);
+
+         document.getElementById("name").value = "";
+         document.getElementById("collegeName").value = "";
+         document.getElementById("studentId").value = "";
+         document.getElementById("course").value = "";
+         document.getElementById("photo").value = "";
+
+         clearLivePreview();
+     });
+
+     function clearLivePreview() {
+         var photoPreview = document.getElementById("idCardPhoto");
+     }
+ });
+ function generatePDF() {
+     var element = document.getElementById('idCardContent');
+   
+
+     var opt = {
+         margin: 0,
+         filename: 'myfile.pdf',
+         image: { type: 'jpeg', quality: 1 },
+         html2canvas: { scale: 1 },
+         jsPDF: { unit: 'in', format: [4.6, 3.01], orientation: 'landscape', precision: '12' } 
+     };
+
+     html2pdf().set(opt).from(element).save();
+ }
+    </script>
+      
+</body>
+
+</html>
